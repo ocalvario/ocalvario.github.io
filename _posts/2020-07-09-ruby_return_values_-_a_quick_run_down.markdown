@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Ruby Return Values - A Quick Run Down"
-date:       2020-07-09 20:02:36 +0000
+date:       2020-07-09 16:02:37 -0400
 permalink:  ruby_return_values_-_a_quick_run_down
 ---
 
@@ -10,20 +10,24 @@ We'll now do a quick run through of review values on Ruby.
 
 In Ruby, we have both implicit and explicit return values. Let's consider the following example:
 
-1     def multiply(x, y)
-2        x * y
-3     end
-4 
-5     multiply (2, 3)
+```
+def multiply(x, y)
+    x * y
+end
+
+multiply (2, 3)
+```
 
 That would as expected, get you the value 6. Simple enough. But what if we made the following change:
 
-1     def multiply (x, y)
-2         x * y
-3     		"Houston, we have a problem!"
-4     end
-5
-6     multiply(3, 4)
+```
+def multiply (x, y)
+    x * y
+    "Houston, we have a problem!"
+end
+
+multiply(3, 4)
+```
 
 In this case, we would not get lucky #12 ... Rather instead, the insertion of the inauspicious string in line 3 means that string is the last item evaluated within the code block of our multiply method. As such, the code block within the multiply method would *implicitly* return this string rather than our arithmetical operation.
 
